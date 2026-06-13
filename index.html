@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Balamani Sandeep Linga — Senior Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0A0F1E;
+  --surface: #141929;
+  --surface2: #1C2438;
+  --teal: #00D4B4;
+  --teal-dim: rgba(0,212,180,0.12);
+  --teal-border: rgba(0,212,180,0.25);
+  --white: #F0F2F8;
+  --muted: #8892A4;
+  --muted2: #5A6478;
+  --border: rgba(255,255,255,0.07);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--teal);letter-spacing:0.02em;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:0.03em;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{font-size:13px;font-family:'Space Grotesk',sans-serif;font-weight:500;color:var(--bg);background:var(--teal);padding:7px 18px;border-radius:4px;text-decoration:none;transition:opacity 0.2s;}
+.nav-cta:hover{opacity:0.85;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(1.5rem,6vw,7rem);padding-top:60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,180,0.06) 0%,transparent 70%);pointer-events:none;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--teal);letter-spacing:0.08em;margin-bottom:1.5rem;display:flex;align-items:center;gap:8px;}
+.hero-eyebrow::before{content:'>';display:inline-block;}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--teal);vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:700;line-height:1.05;letter-spacing:-0.02em;margin-bottom:0.5rem;}
+.hero h1 span{color:var(--teal);}
+.hero-role{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;color:var(--muted);margin-bottom:2rem;min-height:2rem;}
+.typing-word{color:var(--white);font-weight:500;}
+.hero-desc{max-width:600px;font-size:1rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem;}
+.hero-stats{display:flex;gap:2.5rem;margin-bottom:3rem;flex-wrap:wrap;}
+.stat{display:flex;flex-direction:column;}
+.stat-num{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:500;color:var(--white);}
+.stat-label{font-size:12px;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px;background:var(--teal);color:var(--bg);padding:12px 28px;border-radius:4px;text-decoration:none;transition:opacity 0.2s;}
+.btn-primary:hover{opacity:0.85;}
+.btn-ghost{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px;background:transparent;color:var(--white);padding:12px 28px;border-radius:4px;text-decoration:none;border:1px solid var(--border);transition:border-color 0.2s;}
+.btn-ghost:hover{border-color:var(--teal-border);}
+.scroll-hint{position:absolute;bottom:2.5rem;left:clamp(1.5rem,6vw,7rem);font-size:12px;color:var(--muted2);font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:8px;}
+.scroll-hint::after{content:'';width:40px;height:1px;background:var(--muted2);}
+
+/* SECTIONS */
+section{padding:6rem clamp(1.5rem,6vw,7rem);}
+.section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;letter-spacing:-0.01em;margin-bottom:3rem;}
+.section-title em{color:var(--teal);font-style:normal;}
+
+/* EXPERIENCE */
+#experience{background:var(--bg);}
+.timeline{position:relative;padding-left:2px;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--teal),transparent);}
+.job{position:relative;padding-left:2.5rem;margin-bottom:3.5rem;}
+.job::before{content:'';position:absolute;left:-5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--teal);}
+.job-header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:0.5rem;margin-bottom:0.35rem;}
+.job-company{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.05rem;color:var(--white);}
+.job-period{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);background:var(--teal-dim);padding:4px 10px;border-radius:3px;white-space:nowrap;}
+.job-title{font-size:14px;color:var(--muted);margin-bottom:0.25rem;}
+.job-project{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted2);margin-bottom:1rem;border-left:2px solid var(--surface2);padding-left:10px;}
+.job-bullets{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+.job-bullets li{font-size:14px;color:var(--muted);line-height:1.65;padding-left:1.25rem;position:relative;}
+.job-bullets li::before{content:'—';position:absolute;left:0;color:var(--teal);font-family:'JetBrains Mono',monospace;}
+.job-bullets strong{color:var(--white);font-weight:500;}
+.job-env{margin-top:1rem;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted2);line-height:1.8;border-top:1px solid var(--border);padding-top:0.75rem;}
+
+/* SKILLS */
+#skills{background:var(--surface);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.skill-cat{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1.5rem;}
+.skill-cat-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.tag{font-size:12px;font-family:'Inter',sans-serif;color:var(--white);background:rgba(255,255,255,0.06);border:1px solid var(--border);padding:4px 10px;border-radius:3px;transition:all 0.2s;}
+.tag:hover{background:var(--teal-dim);border-color:var(--teal-border);color:var(--teal);}
+
+/* IMPACT */
+#impact{background:var(--bg);}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;}
+.impact-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem;transition:border-color 0.2s;}
+.impact-card:hover{border-color:var(--teal-border);}
+.impact-num{font-family:'JetBrains Mono',monospace;font-size:2.25rem;font-weight:500;color:var(--teal);margin-bottom:0.35rem;}
+.impact-desc{font-size:13px;color:var(--muted);line-height:1.5;}
+
+/* EDUCATION */
+#education{background:var(--surface);}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+.edu-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1.5rem;}
+.edu-degree{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;color:var(--white);margin-bottom:0.25rem;}
+.edu-school{font-size:14px;color:var(--muted);margin-bottom:0.5rem;}
+.edu-year{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);}
+
+/* CONTACT */
+#contact{background:var(--bg);text-align:center;}
+#contact .section-title{margin-bottom:1rem;}
+.contact-sub{color:var(--muted);max-width:480px;margin:0 auto 2.5rem;}
+.contact-links{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;}
+.contact-link{display:flex;align-items:center;gap:8px;font-size:14px;font-family:'Space Grotesk',sans-serif;font-weight:500;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:12px 22px;border-radius:4px;transition:all 0.2s;}
+.contact-link:hover{color:var(--teal);border-color:var(--teal-border);}
+.contact-link svg{width:16px;height:16px;flex-shrink:0;}
+
+/* FOOTER */
+footer{padding:2rem clamp(1.5rem,6vw,7rem);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-name{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--muted2);}
+.footer-note{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted2);}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .hero-stats{gap:1.5rem;}
+  section{padding:4rem 1.5rem;}
+  .timeline::before{display:none;}
+  .job{padding-left:0;}
+  .job::before{display:none;}
+}
+@media(prefers-reduced-motion:reduce){
+  .cursor{animation:none;}
+  *{transition:none!important;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">BSL</span>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#education">Education</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:balamanisandeep94@gmail.com">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-eyebrow">Senior Software Engineer &nbsp;<span class="cursor"></span></div>
+  <h1>Balamani<br/><span>Sandeep</span> Linga</h1>
+  <div class="hero-role">Specializing in <span class="typing-word" id="typing-target">distributed systems</span></div>
+  <p class="hero-desc">8 years building large-scale distributed systems, cloud-native microservices, and event-driven architectures. Expert in Java, Spring Boot, and AWS — shipping clean, maintainable code that scales.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">8+</span><span class="stat-label">Years experience</span></div>
+    <div class="stat"><span class="stat-num">75%</span><span class="stat-label">Failure reduction</span></div>
+    <div class="stat"><span class="stat-num">100K+</span><span class="stat-label">Users served</span></div>
+    <div class="stat"><span class="stat-num">20%</span><span class="stat-label">Faster delivery</span></div>
+  </div>
+  <div class="hero-actions">
+    <a class="btn-primary" href="mailto:balamanisandeep94@gmail.com">Contact me</a>
+    <a class="btn-ghost" href="https://www.linkedin.com/in/balamani-linga/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </div>
+  <div class="scroll-hint">scroll to explore</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-eyebrow">Career</div>
+  <h2 class="section-title">Professional <em>Experience</em></h2>
+  <div class="timeline">
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Capital One Financial</span>
+        <span class="job-period">May 2024 – Present</span>
+      </div>
+      <div class="job-title">Software Engineer · Plano, TX (Remote-friendly)</div>
+      <div class="job-project">Multi Lender Platform — FS Tech & Data (Dealers and Lenders Management)</div>
+      <ul class="job-bullets">
+        <li>Drove end-to-end delivery of distributed backend services under high ambiguity — defining API contracts, data schemas, and event-driven patterns, shipping features <strong>20% faster</strong> through TDD and AI-assisted development.</li>
+        <li>Built and maintained RESTful APIs (Java 17/21, Spring Boot) and Angular-backed Loan Processing frontend, ensuring consistent API contracts across 5+ consumer services.</li>
+        <li>Architected Kafka producer/consumer pipelines to decouple service dependencies — reduced system failures during peak traffic by <strong>75%</strong>.</li>
+        <li>Provisioned AWS ECS/Fargate clusters and S3 infrastructure via Terraform, cutting environment provisioning time by <strong>~40%</strong>.</li>
+        <li>Implemented OAuth 2.0 / JWT authentication across API layers; mentored 5+ engineers on reactive programming (Java 21) and TDD.</li>
+      </ul>
+      <div class="job-env">Java 17/21 · Spring Boot · Kafka · PostgreSQL · MongoDB · AWS (ECS, Fargate, S3) · Terraform · OAuth 2.0 · JWT · Docker · Jenkins · Git</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Sherwin Williams Company</span>
+        <span class="job-period">July 2023 – April 2024</span>
+      </div>
+      <div class="job-title">Application Developer III · Cleveland, OH (Hybrid/Remote)</div>
+      <div class="job-project">Suppliers Management — Digital Integration Layer</div>
+      <ul class="job-bullets">
+        <li>Designed REST and GraphQL APIs replacing 4 legacy endpoints — reduced client over-fetching by <strong>~30%</strong> and cut average payload size by <strong>~25%</strong>.</li>
+        <li>Architected end-to-end Azure data integration pipeline (Service Bus → Logic Apps → Functions → APIM → Cosmos DB) with <strong>&lt;500ms</strong> average latency across 5+ enterprise systems.</li>
+        <li>Designed hybrid Kafka + Azure Event Hubs messaging layer, reducing message delivery failures by <strong>~35%</strong>.</li>
+        <li>Modernized Supplier DIL legacy app (Java 8 → Java 17, Spring 6), cutting build/deploy cycle time by <strong>~20%</strong>.</li>
+      </ul>
+      <div class="job-env">Java 17 · Spring Boot 3 · GraphQL · Kafka · Azure Event Hubs · Azure Service Bus · Cosmos DB · PostgreSQL · Terraform · GitLab</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Financial Services Firm</span>
+        <span class="job-period">Jan 2023 – June 2023</span>
+      </div>
+      <div class="job-title">Senior Java Developer · Malvern, PA (Remote)</div>
+      <div class="job-project">Portfolio Review Department — Legacy Application Modernization</div>
+      <ul class="job-bullets">
+        <li>Delivered large-scale Java 8 → Java 17 modernization under ambiguity — evaluated 3rd-party architecture, defined the migration approach, drove it to completion across multiple modules.</li>
+        <li>Built backend APIs with Spring Boot + PostgreSQL/MySQL; implemented AWS Lambda (Python) functions for data transition pipelines.</li>
+        <li>Established comprehensive TDD test coverage — reduced customer complaints by <strong>5%</strong> and created a testing baseline adopted team-wide.</li>
+      </ul>
+      <div class="job-env">Java 17 · Spring Boot · PostgreSQL · MySQL · AWS Lambda · Python · Angular 16 · Git · JUnit · TDD</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Capital One Financial</span>
+        <span class="job-period">June 2020 – Dec 2022</span>
+      </div>
+      <div class="job-title">Software Engineer · Plano, TX</div>
+      <div class="job-project">Auto Navigator — Auto Loan Processing Application</div>
+      <ul class="job-bullets">
+        <li>Built high-throughput REST APIs (Java 8, Spring Boot, Spring Security, Spring Batch) supporting real-time auto loan data for millions of customers.</li>
+        <li>Defined Kafka event-driven architecture standards — enforced consistent data schemas and sub-second latency SLAs across <strong>3 business units</strong>.</li>
+        <li>Identified and resolved vulnerabilities in 20+ components, reducing peak-time system failures by <strong>75%</strong>.</li>
+      </ul>
+      <div class="job-env">Java 8 · Spring Boot · Spring Security · Spring Cloud · Kafka · PostgreSQL · MongoDB · AWS · Docker · Jenkins · Git</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Enterprise Fleet Management (EFM)</span>
+        <span class="job-period">June 2019 – May 2020</span>
+      </div>
+      <div class="job-title">Java Developer · St. Louis, MO</div>
+      <div class="job-project">VAULT — Vehicle Administration Utility for License and Title</div>
+      <ul class="job-bullets">
+        <li>Led Struts 2.0 → Spring Boot migration for 15+ modules, eliminating a 7-year-old framework dependency and reducing codebase size by <strong>~20%</strong>.</li>
+        <li>Designed scalable REST APIs for 200+ customers; implemented OAuth 2.0 / JWT re-platforming the identity layer for <strong>100,000+ users</strong>.</li>
+        <li>Improved system uptime from ~95% to <strong>99.5%</strong> through targeted refactoring and Hibernate ORM optimization.</li>
+      </ul>
+      <div class="job-env">Java 6/8 · Spring Boot · Hibernate · Kafka · PostgreSQL · Oracle · AWS S3 · OAuth 2.0 · JWT · Git</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Capital One Financial</span>
+        <span class="job-period">June 2018 – May 2019</span>
+      </div>
+      <div class="job-title">Software Engineer · Richmond, VA</div>
+      <div class="job-project">Hubble — Card & Check Management Tool (AWS Cloud Migration)</div>
+      <ul class="job-bullets">
+        <li>Developed Java/Spring Boot backend services for on-premises → AWS Cloud migration; built Jenkins CI/CD pipelines improving release frequency from <strong>monthly to weekly</strong>.</li>
+        <li>Resolved memory leaks in 5+ applications, improving performance by <strong>80%</strong>; optimized DB queries cutting page load times by <strong>50%</strong>.</li>
+      </ul>
+      <div class="job-env">Java 7/8 · Spring Boot · Spring Cloud · PostgreSQL · MongoDB · AWS (EC2, ECS, CloudWatch) · Docker · Jenkins · Git</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-eyebrow">Expertise</div>
+  <h2 class="section-title">Technical <em>Skills</em></h2>
+  <div class="skills-grid">
+    <div class="skill-cat">
+      <div class="skill-cat-label">Languages</div>
+      <div class="skill-tags">
+        <span class="tag">Java 8/17/21</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Backend / APIs</div>
+      <div class="skill-tags">
+        <span class="tag">Spring Boot</span><span class="tag">Spring Cloud</span><span class="tag">REST APIs</span><span class="tag">GraphQL</span><span class="tag">Microservices</span><span class="tag">SOAP</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Databases</div>
+      <div class="skill-tags">
+        <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Oracle</span><span class="tag">MySQL</span><span class="tag">Elasticsearch</span><span class="tag">HBase</span><span class="tag">Cosmos DB</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Messaging</div>
+      <div class="skill-tags">
+        <span class="tag">Apache Kafka</span><span class="tag">Azure Event Hubs</span><span class="tag">Azure Service Bus</span><span class="tag">WebSockets</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Cloud — AWS</div>
+      <div class="skill-tags">
+        <span class="tag">ECS</span><span class="tag">Fargate</span><span class="tag">EC2</span><span class="tag">S3</span><span class="tag">Lambda</span><span class="tag">CloudWatch</span><span class="tag">Terraform</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Cloud — Azure</div>
+      <div class="skill-tags">
+        <span class="tag">Event Hubs</span><span class="tag">Service Bus</span><span class="tag">Logic Apps</span><span class="tag">Functions</span><span class="tag">APIM</span><span class="tag">Cosmos DB</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Auth / Security</div>
+      <div class="skill-tags">
+        <span class="tag">OAuth 2.0</span><span class="tag">JWT</span><span class="tag">Spring Security</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">DevOps / Git</div>
+      <div class="skill-tags">
+        <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">GitLab</span><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Maven</span><span class="tag">Gradle</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Testing / TDD</div>
+      <div class="skill-tags">
+        <span class="tag">JUnit</span><span class="tag">Mockito</span><span class="tag">TDD</span><span class="tag">AI-assisted testing</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Monitoring</div>
+      <div class="skill-tags">
+        <span class="tag">Splunk</span><span class="tag">New Relic</span><span class="tag">PagerDuty</span><span class="tag">CloudWatch</span><span class="tag">Mend</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-eyebrow">By the numbers</div>
+  <h2 class="section-title">Measurable <em>Impact</em></h2>
+  <div class="impact-grid">
+    <div class="impact-card"><div class="impact-num">75%</div><div class="impact-desc">Reduction in peak-time system failures at Capital One via Kafka decoupling</div></div>
+    <div class="impact-card"><div class="impact-num">80%</div><div class="impact-desc">Performance improvement resolving memory leaks across 5+ applications</div></div>
+    <div class="impact-card"><div class="impact-num">50%</div><div class="impact-desc">Faster page load times through PostgreSQL/MongoDB query optimization and caching</div></div>
+    <div class="impact-card"><div class="impact-num">40%</div><div class="impact-desc">Reduction in environment provisioning time with Terraform IaC on AWS ECS/Fargate</div></div>
+    <div class="impact-card"><div class="impact-num">100K+</div><div class="impact-desc">Users re-platformed to OAuth 2.0 / JWT identity layer at EFM</div></div>
+    <div class="impact-card"><div class="impact-num">20%</div><div class="impact-desc">Acceleration in feature delivery through TDD + AI-assisted development (GitHub Copilot)</div></div>
+    <div class="impact-card"><div class="impact-num">35%</div><div class="impact-desc">Fewer message delivery failures with hybrid Kafka + Azure Event Hubs architecture</div></div>
+    <div class="impact-card"><div class="impact-num">99.5%</div><div class="impact-desc">System uptime at EFM, up from ~95%, through targeted refactoring</div></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-eyebrow">Background</div>
+  <h2 class="section-title"><em>Education</em></h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">M.S. Applied Computer Science</div>
+      <div class="edu-school">Northwest Missouri State University</div>
+      <div class="edu-year">Aug 2016 – Dec 2017</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">B.Tech Electronics and Communication Engineering</div>
+      <div class="edu-school">GITAM University, Hyderabad</div>
+      <div class="edu-year">June 2012 – Apr 2016</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-eyebrow">Let's connect</div>
+  <h2 class="section-title">Get in <em>Touch</em></h2>
+  <p class="contact-sub">Open to senior backend and full stack roles. Feel free to reach out directly.</p>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:balamanisandeep94@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      balamanisandeep94@gmail.com
+    </a>
+    <a class="contact-link" href="tel:+19725854847">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      +1 (972) 585-4847
+    </a>
+    <a class="contact-link" href="https://www.linkedin.com/in/balamani-linga/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn Profile
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Balamani Sandeep Linga · Senior Software Engineer</span>
+  <span class="footer-note">// 8+ years · Java · Spring Boot · AWS · Distributed Systems</span>
+</footer>
+
+<script>
+const words = ['distributed systems','event-driven APIs','cloud-native microservices','Java & Spring Boot','AWS infrastructure'];
+let wi = 0, ci = 0, deleting = false;
+const el = document.getElementById('typing-target');
+function type() {
+  const word = words[wi];
+  if (!deleting) {
+    el.textContent = word.slice(0, ++ci);
+    if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+  } else {
+    el.textContent = word.slice(0, --ci);
+    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+  }
+  setTimeout(type, deleting ? 40 : 65);
+}
+type();
+</script>
+</body>
+</html>
